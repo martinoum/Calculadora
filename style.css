@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Work Sans", sans-serif;
+  background: linear-gradient(135deg, #c8b5d1 0%, #9b7aa0 50%, #7a5f7f 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+h1 span {
+  color: #ff4200;
+}
+
+.calculadora {
+  background: linear-gradient(145deg, #2a2a2a 0%, #1a1a1a 50%, #0f0f0f 100%);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 10px 20px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 320px;
+  width: 100%;
+}
+
+.display {
+  background: linear-gradient(145deg, #000000 0%, #1a1a1a 100%);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: right;
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.4),
+    inset 0 1px 2px rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.display-value {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.botones {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.boton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(145deg, #4a4a4a 0%, #3a3a3a 50%, #2a2a2a 100%);
+  border: none;
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 500;
+  height: 60px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.boton::before {
+  content: "";
+  position: absolute;
+  margin: 0;
+  height: 50%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  border-radius: 12px 12px 0 0;
+}
+
+.boton:hover {
+  background: linear-gradient(145deg, #5a5a5a 0%, #4a4a4a 50%, #3a3a3a 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4), 0 3px 6px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.boton:active {
+  transform: translateY(1px);
+  background: linear-gradient(145deg, #2a2a2a 0%, #1a1a1a 50%, #0a0a0a 100%);
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.4),
+    inset 0 1px 2px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.boton.operador {
+  background: linear-gradient(145deg, #5a5a5a 0%, #4a4a4a 50%, #3a3a3a 100%);
+  font-size: 1.2rem;
+}
+
+.boton.operador:hover {
+  background: linear-gradient(145deg, #6a6a6a 0%, #5a5a5a 50%, #4a4a4a 100%);
+}
+
+.boton.igual {
+  background: linear-gradient(145deg, #ff8c42 0%, #ff7722 50%, #ff6200 100%);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(255, 98, 0, 0.3), 0 2px 4px rgba(255, 98, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2), inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  grid-column: span 2;
+}
+
+.boton.igual:hover {
+  background: linear-gradient(145deg, #ff9c52 0%, #ff8732 50%, #ff7200 100%);
+  box-shadow: 0 6px 12px rgba(255, 98, 0, 0.4), 0 3px 6px rgba(255, 98, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.boton.igual:active {
+  background: linear-gradient(145deg, #ff6200 0%, #ff5200 50%, #ff4200 100%);
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.2),
+    inset 0 1px 2px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(255, 98, 0, 0.2);
+}
+
+.boton.funcion {
+  background: linear-gradient(145deg, #6a6a6a 0%, #5a5a5a 50%, #4a4a4a 100%);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.boton.funcion:hover {
+  background: linear-gradient(145deg, #7a7a7a 0%, #6a6a6a 50%, #5a5a5a 100%);
+}
+
+.social-links {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.social-links a {
+  color: #000000;
+  font-size: 28px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #ff4200;
+  transform: scale(1.2) translateY(-5px);
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
